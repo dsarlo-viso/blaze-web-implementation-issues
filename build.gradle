@@ -30,7 +30,7 @@ dependencies {
     implementation group: 'com.blazebit', name: 'blaze-persistence-integration-entity-view-spring', version: '1.6.3'
     implementation group: 'com.blazebit', name: 'blaze-persistence-integration-spring-data-2.4', version: '1.6.3'
     implementation group: 'com.blazebit', name: 'blaze-persistence-integration-hibernate-5.4', version: '1.6.3'
-    implementation group: 'com.blazebit', name: 'blaze-persistence-integration-spring-data-webflux', version: '1.6.3'
+//    implementation group: 'com.blazebit', name: 'blaze-persistence-integration-spring-data-webflux', version: '1.6.3'
     implementation group: 'com.blazebit', name: 'blaze-persistence-integration-spring-data-webmvc', version: '1.6.3'
     annotationProcessor group: 'com.blazebit', name: 'blaze-persistence-entity-view-processor', version: '1.6.3'
 }

@@ -35,7 +35,7 @@ public class UserProfileRepository {
 		return userProfileBuilder.getQuery().getResultList();
 	}
 
-	public UserProfileView createUserProfile(UserProfileView userProfileView) {
+	public UserProfileView saveUserProfile(UserProfileView userProfileView) {
 		evm.save(em, userProfileView);
 		return userProfileView;
 	}

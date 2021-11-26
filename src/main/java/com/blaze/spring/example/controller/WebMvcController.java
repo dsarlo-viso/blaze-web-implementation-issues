@@ -28,6 +28,6 @@ public class WebMvcController {
 
 	@PostMapping
 	public ResponseEntity<UserProfileView> createUserProfile(@RequestBody UserProfileView userProfileView) {
-		return ResponseEntity.ok(userProfileService.createUserProfile(userProfileView));
+		return ResponseEntity.ok(userProfileService.saveUserProfile(userProfileView));
 	}
 }

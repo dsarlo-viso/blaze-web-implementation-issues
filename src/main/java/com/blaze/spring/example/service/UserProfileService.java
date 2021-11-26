@@ -15,9 +15,7 @@ public class UserProfileService {
 
 	private final UserProfileRepository userProfileRepository;
 
-	public UserProfileService(
-			UserProfileRepository userProfileRepository
-	) {
+	public UserProfileService(UserProfileRepository userProfileRepository) {
 		this.userProfileRepository = userProfileRepository;
 	}
 
@@ -25,8 +23,8 @@ public class UserProfileService {
 		return userProfileRepository.getAllUserProfiles();
 	}
 
-	public UserProfileView createUserProfile(UserProfileView userProfileView) {
-		return userProfileRepository.createUserProfile(userProfileView);
+	public UserProfileView saveUserProfile(UserProfileView userProfileView) {
+		return userProfileRepository.saveUserProfile(userProfileView);
 	}
 
 	public Flux<UserProfileView> getUserProfilesFlux() {

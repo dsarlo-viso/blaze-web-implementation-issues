@@ -1,10 +1,7 @@
 package com.blaze.spring.example.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.util.UUID;
+import javax.persistence.*;
+import java.util.*;
 
 @Entity
 @Table (name = "user_profiles")
@@ -12,6 +9,10 @@ public class UserProfile {
 	@Id
 	@Column(name = "id")
 	private UUID id = UUID.randomUUID();
+
+	@OneToMany(mappedBy = "userProfile", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OrderColumn(name = "index", nullable = false)
+	private List<Link> links = new ArrayList<>();
 
 	private String firstName;
 
@@ -39,5 +40,13 @@ public class UserProfile {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public List<Link> getLinks() {
+		return links;
+	}
+
+	public void setLinks(List<Link> links) {
+		this.links = links;
 	}
 }
