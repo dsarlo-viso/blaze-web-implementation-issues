@@ -13,9 +13,6 @@ import java.util.UUID;
 @UpdatableEntityView
 @EntityView(Link.class)
 public interface LinkView {
-    @IdMapping("id")
-    UUID getId();
-
     String getName();
     void setName(String name);
 

@@ -10,7 +10,8 @@ public class UserProfile {
 	@Column(name = "id")
 	private UUID id = UUID.randomUUID();
 
-	@OneToMany(mappedBy = "userProfile", cascade = CascadeType.ALL, orphanRemoval = true)
+	@ElementCollection
+	@CollectionTable(name = "profile_links", joinColumns = @JoinColumn(name = "profile_id"))
 	@OrderColumn(name = "index", nullable = false)
 	private List<Link> links = new ArrayList<>();
 

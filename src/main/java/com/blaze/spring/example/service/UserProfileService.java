@@ -1,5 +1,6 @@
 package com.blaze.spring.example.service;
 
+import com.blaze.spring.example.domain.UserProfile;
 import com.blaze.spring.example.repository.UserProfileRepository;
 import com.blaze.spring.example.service.views.UserProfileView;
 import org.springframework.stereotype.Service;
@@ -19,12 +20,20 @@ public class UserProfileService {
 		this.userProfileRepository = userProfileRepository;
 	}
 
-	public List<UserProfileView> getAllUserProfiles() {
+	public List<UserProfile> getAllUserProfiles() {
 		return userProfileRepository.getAllUserProfiles();
 	}
 
-	public UserProfileView saveUserProfile(UserProfileView userProfileView) {
-		return userProfileRepository.saveUserProfile(userProfileView);
+	public UserProfile saveUserProfile(UserProfile userProfile) {
+		return userProfileRepository.saveUserProfile(userProfile);
+	}
+
+	public List<UserProfileView> getAllUserProfileViews() {
+		return userProfileRepository.getAllUserProfileViews();
+	}
+
+	public UserProfileView saveUserProfileView(UserProfileView userProfileView) {
+		return userProfileRepository.saveUserProfileView(userProfileView);
 	}
 
 	public Flux<UserProfileView> getUserProfilesFlux() {

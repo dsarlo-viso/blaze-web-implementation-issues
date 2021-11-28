@@ -23,11 +23,11 @@ public class WebMvcController {
 
 	@GetMapping
 	public ResponseEntity<List<UserProfileView>> getAllUserProfiles() {
-		return ResponseEntity.ok(userProfileService.getAllUserProfiles());
+		return ResponseEntity.ok(userProfileService.getAllUserProfileViews());
 	}
 
 	@PostMapping
 	public ResponseEntity<UserProfileView> createUserProfile(@RequestBody UserProfileView userProfileView) {
-		return ResponseEntity.ok(userProfileService.saveUserProfile(userProfileView));
+		return ResponseEntity.ok(userProfileService.saveUserProfileView(userProfileView));
 	}
 }

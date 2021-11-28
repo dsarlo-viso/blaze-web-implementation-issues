@@ -28,14 +28,24 @@ public class UserProfileRepository {
 		this.cbf = cbf;
 	}
 
-	public List<UserProfileView> getAllUserProfiles() {
+	public List<UserProfile> getAllUserProfiles() {
+		return em.createQuery("select u from UserProfile u").getResultList();
+	}
+
+	public UserProfile saveUserProfile(UserProfile userProfile) {
+		userProfile = em.merge(userProfile);
+		em.flush();
+		return userProfile;
+	}
+
+	public List<UserProfileView> getAllUserProfileViews() {
 		CriteriaBuilder<UserProfile> criteriaBuilder = cbf.create(em, UserProfile.class);
 		CriteriaBuilder<UserProfileView> userProfileBuilder = evm.applySetting(EntityViewSetting.create(
 				UserProfileView.class), criteriaBuilder);
 		return userProfileBuilder.getQuery().getResultList();
 	}
 
-	public UserProfileView saveUserProfile(UserProfileView userProfileView) {
+	public UserProfileView saveUserProfileView(UserProfileView userProfileView) {
 		evm.save(em, userProfileView);
 		return userProfileView;
 	}
