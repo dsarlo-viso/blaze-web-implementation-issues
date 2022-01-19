@@ -1,5 +1,7 @@
 package com.blaze.spring.example.domain;
 
+import org.springframework.lang.Nullable;
+
 import javax.persistence.*;
 import java.util.*;
 
@@ -18,6 +20,11 @@ public class UserProfile {
 	private String firstName;
 
 	private String lastName;
+
+	@Nullable
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "org_id", updatable = false)
+	private Org org;
 
 	public UUID getId() {
 		return id;
@@ -49,5 +56,14 @@ public class UserProfile {
 
 	public void setLinks(List<Link> links) {
 		this.links = links;
+	}
+
+	@Nullable
+	public Org getOrg() {
+		return org;
+	}
+
+	public void setOrg(@Nullable Org org) {
+		this.org = org;
 	}
 }
