@@ -19,6 +19,7 @@ public interface UserProfileView {
 	String getLastName();
 	void setLastName(String lastName);
 
+	@Mapping(fetch = FetchStrategy.MULTISET)
 	@UpdatableMapping(orphanRemoval = true, cascade = {CascadeType.AUTO, CascadeType.PERSIST})
 	List<LinkView> getLinks();
 	void setLinks(List<LinkView> links);
